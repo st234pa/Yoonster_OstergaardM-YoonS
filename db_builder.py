@@ -22,15 +22,18 @@ d=csv.DictReader(fObj)
 for k in d:
     p = "INSERT INTO students VALUES (\' "+k['name']+" \', \'"+k['age']+"\', \'"+k['id']+"\')"
     c.execute(p)
-
+fObj.close()
+    
+gObj = open("courses.csv") 
+d=csv.DictReader(gObj)
 r = "CREATE TABLE courses (code TEXT, id INTEGER, mark INTEGER)"
 c.execute(r)
 for k in d:
     s = "INSERT INTO courses VALUES (\' "+k['code']+" \', \'"+k['mark']+"\', \'"+k['id']+"\')"
     c.execute(s)
 
+gObj.close()
 
-fObj.close()
 
 #==========================================================
 db.commit() #save changes
