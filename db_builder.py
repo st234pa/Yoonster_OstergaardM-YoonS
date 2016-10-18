@@ -23,13 +23,12 @@ for k in d:
     p = "INSERT INTO students VALUES (\' "+k['name']+" \', \'"+k['age']+"\', \'"+k['id']+"\')"
     c.execute(p)
 
-
-
-q = "CREATE TABLE courses (code TEXT, id INTEGER, mark INTEGER)"
-c.execute(q)
+r = "CREATE TABLE courses (code TEXT, id INTEGER, mark INTEGER)"
+c.execute(r)
 for k in d:
-    p = "INSERT INTO courses VALUES (\' "+k['code']+" \', \'"+k['mark']+"\', \'"+k['id']+"\')"
-    c.execute(p)
+    s = "INSERT INTO courses VALUES (\' "+k['code']+" \', \'"+k['mark']+"\', \'"+k['id']+"\')"
+    c.execute(s)
+
 
 fObj.close()
 
