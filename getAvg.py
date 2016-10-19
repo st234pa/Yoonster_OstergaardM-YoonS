@@ -5,25 +5,33 @@ db = sqlite3.connect(f)
 c = db.cursor()
 
 q = "SELECT name, students.id, mark FROM students, courses WHERE students.id = courses.id"
-t = c.execute(q)
+sel = c.execute(q)
 d = {}
 
-for r in t:
-        name = r[0]
-        dict[n] = [0,0,0]
+for rec in sel:
+        name = rec[0]
+        d[name] = [0,0,0]
 
-for r in t:
-        name = r[0]
-        sid = r[1]
-        grade = [2]
+# print d["tiesto"]
+
+q = "SELECT name, students.id, mark FROM students, courses WHERE students.id = courses.id"
+sel = c.execute(q)
+
+for rec in sel:
+        name = rec[0]
+        # print name
+        ids = rec[1]
+        # print ids
+        grade = rec[2]
+        # print grade
         d[name][0] += grade
-        d[name][1] sid
+        d[name][1] = ids
         d[name][2] += 1
 
-for key in d:
-        sid = d[key][1]
-        avg = d[key][0]/d[key][2]
-        print "Name: %s ID: %d Avg: %d"%(key, sid, avg)
+for student in d:
+        ids = d[student][1]
+        avg = (d[student][0])/(d[student][2])
+        print "Name: %s ID: %d Average: %d"%(student, ids, avg) # 
         
 db.commit()
 db.close()
