@@ -26,7 +26,7 @@ fObj.close()
     
 gObj = open("courses.csv") 
 d=csv.DictReader(gObj)
-r = "CREATE TABLE courses (code TEXT, id INTEGER, mark INTEGER)"
+r = "CREATE TABLE courses (code TEXT, mark INTEGER, id INTEGER)"
 c.execute(r)
 for k in d:
     s = "INSERT INTO courses VALUES (\' "+k['code']+" \', \'"+k['mark']+"\', \'"+k['id']+"\')"
