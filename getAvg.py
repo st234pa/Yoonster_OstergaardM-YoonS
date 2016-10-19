@@ -15,7 +15,7 @@ for r in t:
 for r in t:
         name = r[0]
         sid = r[1]
-        grade = [2]
+        grade = r[2]
         d[name][0] += grade
         d[name][1] = sid
         d[name][2] += 1
