@@ -4,23 +4,26 @@ f = "discobandit.db"
 db = sqlite3.connect(f)
 c = db.cursor()
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Create new "averages" table ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-q = "CREATE TABLE averages (name TEXT, id INTEGER, average INTEGER)"
-c.execute(q)
+q = "SELECT name, students.id, mark FROM students, courses WHERE students.id = courses.id"
+t = c.execute(q)
+d = {}
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Populate table ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+for r in t:
+        name = r[0]
+        dict[n] = [0,0,0]
 
-# select = "SELECT name, mark FROM students, courses WHERE students.id = courses.id;"
+for r in t:
+        name = r[0]
+        sid = r[1]
+        grade = [2]
+        d[name][0] += grade
+        d[name][1] sid
+        d[name][2] += 1
 
-# Insert names, id
-select = "SELECT name, id FROM students;"
-names = c.execute(select)
-for record in names:
-	"INSERT INTO averages VALUES ('%s')"%(record) 
-
-
-
-
-
+for key in d:
+        sid = d[key][1]
+        avg = d[key][0]/d[key][2]
+        print "Name: %s ID: %d Avg: %d"%(key, sid, avg)
+        
 db.commit()
 db.close()
