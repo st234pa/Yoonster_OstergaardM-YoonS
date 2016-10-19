@@ -8,6 +8,7 @@ q = "SELECT name, students.id, mark FROM students, courses WHERE students.id = c
 sel = c.execute(q)
 d = {}
 
+<<<<<<< HEAD
 for rec in sel:
         name = rec[0]
         d[name] = [0,0,0]
@@ -26,6 +27,18 @@ for rec in sel:
         # print grade
         d[name][0] += grade
         d[name][1] = ids
+=======
+for r in t:
+        name = r[0]
+        dict[name] = [0,0,0]
+
+for r in t:
+        name = r[0]
+        sid = r[1]
+        grade = r[2]
+        d[name][0] += grade
+        d[name][1] = sid
+>>>>>>> 43ca81cecb697bde3cd79ed1fdc3ced3bfe18880
         d[name][2] += 1
 
 for student in d:
